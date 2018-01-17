@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Controller</title>
+
+  <!-- Stylesheets -->
+  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="public/stylesheets/operation.css"/>
+  <link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+  <script type="text/javascript" src="jquery/jquery.min.js"></script>
+</head>
+
+<body>
+	<header></header>
+  <script type="text/javascript"> $('header').load('/header') </script>
+
+  <div class="divider"></div>
+
+  <div class="container" style="margin-top: 10%;">
+    <div id="img_holder" class="row">
+        <div class="col s6 center" >
+            <img src="public/images/jog2.png" id="jogging_btn"/>
+        </div>
+        <div class="col s6 center" >
+            <img src="public/images/run2.png" id="run_btn"/>
+        </div>
+    </div>    
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <button id="disconnect" class="btn connect_btn"> DISCONNECT</button> 
+    </div>
+  </div>
+   
+  <!-- Javascripts -->
+  <script src="materialize-css/js/materialize.min.js"></script>
+  <script src="jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="public/js/operation.js"></script>
+</body>
+</html>

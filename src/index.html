@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, intial-scale=1" charset="utf-8">
+  <title>Controller</title>
+
+  <!-- Stylesheets -->
+  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="public/stylesheets/index.css"/>
+  <link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+  <script type="text/javascript" src="jquery/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div id="landing" class="container">
+		<div class="row logo_holder">
+			<img src="../public/images/logo.png" id="logo"/>
+			<br>MAPUA INSTITUTE OF TECHNOLOGY AT LAGUNA
+			<br>ACADEMIC YEAR 2017-2018
+		</div>
+		<div class="row title_holder">
+			<div class="divider"></div>
+			<div class="col s12" id="title">
+				MOTOR CONTROL OF CONVEYOR BELT SYSTEM
+			</div>
+			<div class="col s12">
+				<i> Christian Neil Cañaveral Cruz </i> | <i> Dan Oliver Rodriguez San Juan </i>	
+			</div>
+			<div class="divider"></div>
+		</div>
+		<div class="row">
+			<button id="loginL" class="red lighten-1 btn waves-effect waves-light"> LOG IN </button>
+			<button id="signupL" class="red lighten-1 btn waves-effect waves-light"> SIGN UP </button>
+		</div>	
+	</div>
+
+
+	<div id="login_div" class="container">
+		<header>
+			<img src="public/images/icon1.png" height="90px" width="90px" alt="conveyor_logo">
+		</header>
+
+		<div class="row center">
+			<form class="col s12" id="loginForm">
+			    <div class="row">
+			        <div class="input-field col s11">
+			          <i class="material-icons prefix">account_circle</i>
+			          <input id="username" type="text" class="validate">
+			          <label for="username">Username</label>
+			        </div>
+			    </div> 
+
+		      	<div class="row">
+		        	<div class="input-field col s11">
+			          <i class="material-icons prefix">lock</i>
+			          <input id="password" type="password" class="validate">
+			          <label for="password">Password</label>
+			        </div>
+		      	</div> 
+		      	<div class="row center">
+		        	<div class="input-field col s12">
+			          <input value="LOGIN" type="submit" class="btn waves-effect waves-light validate red lighten-1">
+			        </div>
+		      	</div> 
+			</form>
+		</div>
+		
+		<div class="row center">
+			<footer> NO ACCOUNT YET? <a id="login_footer"> SIGN UP </a> </footer>
+		</div>	   
+	</div>	
+	<script type="text/javascript">$('#login_div').hide();</script>
+
+	<div id="signup_div" class="container">
+		<header>
+			<img src="public/images/icon1.png" height="90px" width="90px" alt="conveyor_logo">
+		</header>
+
+		<div class="row">
+			<form class="col s12" id="signupForm">
+			     <div class="row" style="padding-left: 50px;">
+			        <div class="input-field col s10">
+			          <input id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			        <div class="input-field col s10">
+			          <input id="last_name" type="text" class="validate">
+			          <label for="last_name">Last Name</label>
+			        </div>
+			      </div>
+			     <div class="row" style="padding-left: 5px;">
+			        <div class="input-field col s5">
+			          <i class="material-icons prefix">face</i>
+			          <input id="new_username" type="text" class="validate">
+			          <label for="new_username">Username</label>
+			        </div>  
+			        <div class="input-field col s5">
+			          <i class="material-icons prefix">lock_outline</i>
+			          <input id="new_password" type="password" class="validate">
+			          <label for="new_password">Password</label>
+			        </div>
+			     </div>
+			     <div class="row center">
+			     	<div class="input-field col s12">
+			     		<input class="red btn waves-effect waves-light validate" type="submit" value="SIGN UP"/>
+			     	</div>
+			     </div>
+			</form>
+		</div>
+		
+		<div class="row center">
+			<footer> ALREADY HAVE AN ACCOUNT? <a id="signup_footer"> LOG IN </a></footer>
+		</div>	 
+	</div>	
+
+	<script type="text/javascript">$('#signup_div').hide();</script>
+
+	<footer style="margin-top: 100px; text-align: center; color: black;">
+		&copy; JDOS&GPEP 
+	</footer>
+  <!-- Javascripts -->
+  <script src="materialize-css/js/materialize.min.js"></script>
+  <script src="public/js/index.js"></script>
+</body>
+</html>

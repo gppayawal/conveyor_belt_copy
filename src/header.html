@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- Stylesheets -->
+  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+  <link rel="stylesheet" href="public/stylesheets/header.css"/>
+</head>
+
+<body>
+  <div id="homeButton">
+    <a class="btn-floating btn-large waves-effect waves-light" href="home">
+      <i class="material-icons prefix icon-white" id="home">home</i>  
+    </a>
+  </div>
+
+  <div id="userHeader">
+    <span id="user"></span>
+  </div>
+  <script type="text/javascript" src="public/js/header.js"></script>
+
+  <div id="signout" data-beloworigin="true">
+    <a class='dropdown-button btn waves-effect icon-teal' href='#' data-activates='dropdown1'>
+      <i class="material-icons">settings</i>   
+    </a>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="/change_password">Change Password</a></li>
+      <li class="divider"></li>
+      <li><a href="/api/account/logout">Log out</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Javascripts -->
+  <script type="text/javascript" src="public/js/header.js"></script>
+  <script type="text/javascript" src="jquery/jquery.min.js"></script>
+  <script src="materialize-css/js/materialize.min.js"></script>
+</body>
+</html>

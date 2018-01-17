@@ -1,0 +1,233 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+var app = require('../app');
+var debug = require('debug')('conveyor-belt-system-controller:server');
+var http = require('http');
+var pg = require('pg');
+
+const client = new pg.Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
+client.connect();
+
+/**
+Create tables for accounts
+*/
+var query = {
+  text: "CREATE TABLE IF NOT EXISTS Accounts (id SERIAL PRIMARY KEY,fname VARCHAR(255) NOT NULL,lname VARCHAR(255) NOT NULL,username VARCHAR(255) NOT NULL UNIQUE,password VARCHAR(255) )"
+};  
+client.query(query, function(err, result){
+  if(err){
+    console.log(err);
+  } 
+  else{
+    console.log(result);
+  }
+});
+
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+  *Socket IO
+*/
+io = require("socket.io")(server);
+var connectedControllers = [];
+
+io.on('connection', function(socket) {
+  var index;
+
+  socket.on('controller', function(){
+    console.log('controller connected');
+    var i;
+    for(i = 0 ; i < connectedControllers.length ; i++){
+      if(connectedControllers[i] == null){
+        connectedControllers[i] = socket;
+        break;
+      }
+    }
+    if(i == connectedControllers.length)
+      connectedControllers.push(socket);
+
+    index = getIndex(socket);
+
+    socket.emit('index', getIndex(socket));
+  });
+
+  socket.on('length', function(fn){
+    var length = 0;
+    for(i = 0 ; i < connectedControllers.length ; i++){
+      if(connectedControllers[i] != null)
+        length++;
+    }
+    fn(length);
+  });
+
+  socket.on('status', function(data, fn){
+    var i = data.i;
+    
+    try{
+      connectedControllers[i].emit('status', function(result){
+        fn(result);
+      });
+    }catch(err){
+        console.log(err);
+        var error = {status:500, message:'controller disconnected'};
+        fn(error);
+    }
+  });
+
+  socket.on('get_logs', function(data, fn){
+    var i = data.id;
+
+    try{
+       connectedControllers[i].emit('logs', function(result){
+        fn(result);  
+      });
+    }catch(err){
+      console.log(err);
+      var error = {status:500, message:'controller disconnected'};
+      fn(error);
+    };
+  })
+
+  socket.on('select', function(data, fn){
+    var i = data.id;
+    console.log(index);
+
+    try{
+      connectedControllers[i].emit('select', data, function(result){
+        fn(result);  
+      });
+    }catch(err){
+      console.log(err);
+      var error = {status:500, message:'controller disconnected'};
+      fn(error);
+    };
+  })
+
+  socket.on('deselect', function(data, fn){ 
+    var i = data.i;
+    
+    try{
+      connectedControllers[i].emit('deselect', data, function(result){
+        fn(result);  
+      });
+    }catch(err){
+      console.log(err);
+      var error = {status:500, message:'controller disconnected'};
+      fn(error);
+    }
+  });
+
+  socket.on('control', function(data, fn){
+    var i = data.i;
+
+    try{
+      connectedControllers[i].emit(data.control,data, function(result){
+        fn(result);
+      });
+    }catch(err){
+      console.log(err);
+      var error = {status:500, message:'controller disconnected'};
+      fn(error);
+    }
+  });
+
+  socket.on('disconnect', function(){
+    var i = getIndex(socket);
+    console.log('disconnected controller #' + i);
+    connectedControllers[i] = null;
+  });
+
+});
+
+
+function getIndex(controller){
+  return connectedControllers.indexOf(controller);
+}
+/* END OF SOCKET.IO CONFIG */
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

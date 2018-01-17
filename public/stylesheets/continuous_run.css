@@ -1,0 +1,101 @@
+body { 
+  background-color: #ffffff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0 auto;
+  padding: 0;
+}
+
+i.icon-white{
+	color: #ffffff;
+}
+
+
+a.icon-teal{
+	background-color:  #00868B;
+	border-radius: 50px;
+	width: 50px;
+	vertical-align: center;
+}
+
+.button{
+	height: 120px;
+	width: 120px;
+	padding-top: 35px;
+	text-align: center;
+	color: black;
+	float: left;
+	margin-left: 60px;
+	font-size: 20px;
+	border: solid 5px black;
+	border-radius: 5px;
+}
+
+.button:hover{
+	opacity: 0.7;
+	height: 115px;
+	width: 115px;
+	color: black;
+}
+
+.bg{
+	padding-top: 8px; 
+	height:45px; 
+}
+
+.bot{
+	margin-top: 50px; 
+	font-size: 50px;
+}
+
+.speed{
+	background-color: green;
+	border: solid 5px black;
+}
+
+.divider{
+	opacity: 0.1;
+}
+
+.toast{
+	width: 500px;
+	height: 700px;
+	text-align: center;
+}
+
+.top{
+	margin-top: 10%;
+}
+
+#direction{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#stop{
+	background-color: red;
+}
+
+#forward{
+	background-color: blue;
+}
+
+#reverse{
+	background-color: orange;
+}
+
+#ops, #speed_levels{
+	margin: 0 auto;
+	padding: 0 auto;
+	padding-top: 25px;
+}
+
+#label{
+	height: 40px;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 10px;
+}

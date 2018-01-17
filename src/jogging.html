@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Controller</title>
+
+  <!-- Stylesheets -->
+  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="public/stylesheets/jogging.css"/>
+  <link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+  <script type="text/javascript" src="jquery/jquery.min.js"></script>
+</head>
+
+<body>
+  <header></header>
+  <script type="text/javascript"> $('header').load('/header') </script>
+
+  <div class="divider"></div>
+
+  <div class="container" style="margin-top: 10%;">    
+      <div class="row">
+        <div id="ops" class="container">
+          <div class="col s4">
+            <div id="stop" class="buttons" style="background-color: red;" onclick=sendData(this)> 
+              <div class="highlight">STOP</div> 
+            </div>
+          </div>
+          <div class="col s4"> 
+            <div id="forward" class="buttons" style="background-color: blue;" onclick=sendData(this)>
+              <div class="highlight"> FORWARD </div>
+            </div>
+          </div>
+          <div class="col s4"> 
+            <div id="reverse" class="buttons" style="background-color: orange;" onclick=sendData(this)>
+              <div class="highlight"> REVERSE </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+  </div> 
+ 
+  <div class="container">
+    <div id="belt_holder" class="row">
+      <div class="col s2">  
+        <div id="move_pt_five" class="belt_buttons" onclick=sendData(this)> 0.5m </div>
+      </div>
+      <div class="col s2">  
+        <div id="move_one" class="belt_buttons" onclick=sendData(this)> 1.0m </div>
+      </div>
+      <div class="col s2">  
+        <div id="move_one_pt_five" class="belt_buttons" onclick=sendData(this)> 1.5m </div>
+      </div>  
+      <div class="col s2">      
+        <div id="move_two" class="belt_buttons" onclick=sendData(this)> 2.0m </div>
+      </div>
+      <div class="col s2">  
+        <div id="move_two_pt_five" class="belt_buttons" onclick=sendData(this)> 2.5m </div>
+      </div>
+      <div class="col s2">  
+        <div id="move_three" class="belt_buttons" onclick=sendData(this)> 3.0m </div>
+      </div>  
+    </div>
+  </div>
+  <div class="container" style="margin-top: 20px;">
+    <div class="row">
+      <div class="col s6">
+        <h5 id="direction" class="center"></h5>
+      </div>
+      <div class="col s6">
+        <h5 id="value" class="center"></h5>
+      </div>
+    </div>   
+  </div>   
+  <div class="container">
+    <div class="row" style="padding-left: 2px; padding-right: 2px;">
+      <form action="#">
+        <p id='value' class='center'></p>
+        <input id='distance' type="range" value="0" min="0" max="3" step="0.5"/>
+      </form>
+    </div>
+   </div>
+    
+  <!-- Javascripts -->
+    <script src="materialize-css/js/materialize.min.js"></script>
+    <script src="jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="public/js/controls.js"></script>
+</body>
+</html>

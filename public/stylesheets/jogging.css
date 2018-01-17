@@ -1,0 +1,76 @@
+body { 
+  background-color: #ffffff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;	
+  padding: 0;
+  margin: 0;
+}
+
+
+#ops{
+	margin: 0 auto;
+	padding: 0 auto;
+	padding-top: 25px;
+}
+
+
+#belt_holder{
+	padding-top: 20px;
+	margin: 0 auto;
+}
+
+
+.buttons{
+	height: 150px;
+	width: 150px;
+	float: left;
+	border: solid 3px black;
+	margin-left: 25px;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.buttons:hover{
+	opacity: 0.7;
+	height: 140px;
+	width: 140px;
+	padding-top: 50px;
+}
+
+.belt_buttons{
+	height: 70px;
+	width: 70px;
+	float: left;
+	border: solid 3px black;
+	text-align: center;
+	padding-top: 20px;
+	margin-left: 20px;
+	border-radius: 100px;
+	color: white;
+	background-color: black;
+}
+
+.belt_buttons:hover{
+	opacity: 0.7;
+	height: 75px;
+	width: 75px;
+	padding-top: 25px;
+}
+
+.highlight{
+	height: 50px;
+	background-color: white;
+	padding-top: 13px;
+}
+
+#direction{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#value{
+	font-size: 20px;
+	font-weight: bold;
+}

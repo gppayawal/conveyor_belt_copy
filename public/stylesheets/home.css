@@ -1,0 +1,67 @@
+body { 
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+textarea{
+	height: 1500px;
+	background-color: pink;
+}
+
+#log{
+	background-color: blue;
+}
+
+#cardHolder{
+	padding-left: 300px 118.8%;
+	padding-top: 10px;
+}
+
+.card-panel{
+	height: 220px 23%;
+	width: 320px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#controls{
+	width: 200px; 
+	border-radius: 20px;
+	padding-top: 10px; 
+	margin-left: 20px;
+	float: left;
+}
+
+#holder{
+	width: 750px;
+	padding-left: 30px;
+	padding-top: 10px;	
+	margin-right: auto;
+	margin: 0 auto;	
+}
+
+.gears{
+	height: 100px; 
+	width: 100px;
+}
+
+.logs_btn{
+	margin-top: 10px;
+}
+
+.connect_btn:hover, .logs_btn:hover{
+	opacity: 0.7;
+}
+
+.modal{
+	height: 1500px;
+}
+
+i.icon-white{
+	color: #ffffff;
+}
